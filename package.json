@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js --exec babel-node",
-    "build": "babel-node app.js"
+    "start": "nodemon src/app.js --exec babel-node",
+    "build": "NODE_ENV=production ./node_modules/.bin/babel src -d output/dist",
+    "update": "sh scripts/update"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "pm2": "^2.7.2"
+    "pm2": "^2.7.2",
+    "shelljs": "^0.7.8"
   }
 }
