@@ -1,7 +1,7 @@
 import Koa from 'koa';
 import fs from 'fs';
 import sha1 from 'sha1';
-const app = new Koa();ddd
+const app = new Koa();
 const config = JSON.parse(fs.readFileSync('./config/conf.local.json'));
 
 // response

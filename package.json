@@ -17,9 +17,11 @@
     "sha1": "^1.1.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.12.1",
     "pm2": "^2.7.2",
     "shelljs": "^0.7.8"
   }
