@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development nodemon src/app.js --exec babel-node",
-    "start_prod": "NODE_ENV=production pm2 start -f --interpreter babel-node src/app.js",
+    "start_prod": "NODE_ENV=production pm2 start -f --interpreter babel-node -n topbuzz src/app.js",
     "build": "NODE_ENV=production ./node_modules/.bin/babel src -d output/dist",
     "update": "sh scripts/update"
   },
