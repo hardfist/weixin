@@ -1,7 +1,10 @@
 import Koa from 'koa';
 import fs from 'fs';
 import sha1 from 'sha1';
+import logUtil from './util/logger';
 const app = new Koa();
+
+app.use(logUtil.httpLogger);
 const config = JSON.parse(fs.readFileSync('./config/conf.local.json'));
 
 // response
