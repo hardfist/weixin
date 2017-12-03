@@ -2,23 +2,19 @@ import Koa from 'koa';
 import fs from 'fs';
 import util from 'util';
 import sha1 from 'sha1';
+import router from './routes';
 import logUtil from './util/logger';
-import auth from './util/auth';
+
 const app = new Koa();
-
-app.use(logUtil.httpLogger);
 const config = JSON.parse(fs.readFileSync('./config/conf.local.json'));
-
-// response
-app.use(auth(config));
-
-app.use(function *(){
-  const { echo } = this.query;
-  if(!echo){
-    this.body = 'no echo';
-  }else {
-    this.body = echo;
-  }
+// 日志处理
+app.use(logUtil.httpLogger);
+// 挂载全局变量
+app.use(function* (next) {
+  this.config = config;
+  yield next;
 });
 
-app.listen(8080);
+app.use(router.routes()).use(router.allowedMethods());
+
+app.listen(9999);

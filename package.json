@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development nodemon src/app.js --exec babel-node",
-    "start_prod": "NODE_ENV=production pm2 start -f --interpreter babel-node -n topbuzz src/app.js",
+    "start_prod": "NODE_ENV=production pm2 start -f --interpreter babel-node -n topbuzz src/app.js --watch",
+    "reload": "pm2 reload topbuzz",
     "build": "NODE_ENV=production ./node_modules/.bin/babel src -d output/dist",
     "update": "sh scripts/update"
   },
@@ -14,9 +15,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-stage-0": "^6.24.1",
+    "body-parser": "^1.18.2",
     "koa": "^1.1.1",
     "koa-log4": "1.1.0",
-    "sha1": "^1.1.1"
+    "koa-router": "^5.4.0",
+    "lodash": "^4.17.4",
+    "raw-body": "^2.3.2",
+    "sha1": "^1.1.1",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
